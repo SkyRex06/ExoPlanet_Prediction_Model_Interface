@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A World Away: Exoplanet AI Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Hero Section -->
+    <header class="hero">
+  <div class="hero-bg"></div>
+  <h1>🌌 <span>A World Away</span></h1>
+  <p class="subtitle">Hunting for Exoplanets with Artificial Intelligence</p>
+  <p class="description">
+    NASA’s space missions have discovered thousands of exoplanets — but most were identified manually.  
+    With AI/ML, we can automate this search and uncover hidden worlds light-years away.  
+    Upload your dataset and let our model analyze the stars.
+  </p>
+</header>
+
+    <!-- How it Works -->
+    <section class="steps">
+      <h2>🚀 How It Works</h2>
+      <div class="step-list">
+        <div class="step">
+          <span class="step-number">1</span>
+          <p>Prepare your CSV file in the required format</p>
+        </div>
+        <div class="step">
+          <span class="step-number">2</span>
+          <p>Upload the file using the interface below</p>
+        </div>
+        <div class="step">
+          <span class="step-number">3</span>
+          <p>Our AI model analyzes celestial data</p>
+        </div>
+        <div class="step">
+          <span class="step-number">4</span>
+          <p>Get instant predictions of potential exoplanets</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upload Section -->
+     
+    <main>
+      <div class="upload-section">
+        <h2>📂 Upload Your Data</h2>
+        <div class="upload-area" id="uploadArea">
+          <div class="upload-content">
+            <div class="upload-icon">📁</div>
+            <h3>Drop your CSV file here</h3>
+            <p>or click to browse</p>
+            <input type="file" id="fileInput" accept=".csv" hidden>
+          </div>
+        </div>
+
+        <div class="file-info" id="fileInfo" style="display: none;">
+          <h4>📄 Selected File:</h4>
+          <p id="fileName"></p>
+          <p id="fileSize"></p>
+          <button id="predictBtn" class="predict-btn">🔮 Run AI Prediction</button>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="results-section" id="resultsSection" style="display: none;">
+        <h2>🔭 Prediction Results</h2>
+        <div class="loading" id="loading" style="display: none;">
+          <div class="spinner"></div>
+          <p>Analyzing celestial signals...</p>
+        </div>
+        <div class="results-container" id="resultsContainer"></div>
+      </div>
+    </main>
+
+    <!-- CSV Format Guide -->
+    <section class="sample-data">
+      <h2>📋 Required CSV Format</h2>
+      <p>Your CSV must contain exactly these columns (in any order):</p>
+      <div class="columns-list">
+        <span class="column">koi_fpflag_nt</span>
+        <span class="column">koi_fpflag_ss</span>
+        <span class="column">koi_fpflag_co</span>
+        <span class="column">koi_fpflag_ec</span>
+        <span class="column">koi_period</span>
+        <span class="column">koi_impact</span>
+        <span class="column">koi_duration</span>
+        <span class="column">koi_depth</span>
+        <span class="column">koi_prad</span>
+        <span class="column">koi_teq</span>
+        <span class="column">koi_insol</span>
+        <span class="column">koi_model_snr</span>
+        <span class="column">koi_steff</span>
+        <span class="column">koi_slogg</span>
+        <span class="column">koi_srad</span>
+        <span class="column">koi_kepmag</span>
+      </div>
+      <p class="note">
+        <strong>Optional:</strong> Add a truth column (<em>is_exoplanet</em>, <em>label</em>, or <em>target</em>) with 0/1 values to test accuracy.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>✨ Built with AI/ML using NASA Open Data | Project: <strong>A World Away</strong></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
