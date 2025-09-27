@@ -1,10 +1,10 @@
-from flask import Flask, request, jsonify, send_from_directory, render_template_string
+from flask import Flask, request, jsonify, render_template, send_from_directory
 import pandas as pd
 import joblib
 import numpy as np
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 # Add CORS headers manually
 @app.after_request
@@ -83,21 +83,11 @@ def health():
         'model_loaded': pipeline is not None
     })
 
+
+# Serve the main HTML interface
 @app.route('/')
 def index():
-    """Serve the main HTML interface"""
-    try:
-        return send_from_directory('.', 'templates/index.html')
-    except FileNotFoundError:
-        return "HTML file not found. Please make sure index.html is in the templates directory", 404
-
-@app.route('/<path:filename>')
-def static_files(filename):
-    """Serve static files (CSS, JS)"""
-    try:
-        return send_from_directory('.', filename)
-    except FileNotFoundError:
-        return f"File {filename} not found", 404
+    return render_template('index.html')
 
 if __name__ == '__main__':
     print("🚀 Starting Exoplanet Prediction Server...")

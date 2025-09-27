@@ -1,7 +1,7 @@
 class ExoplanetPredictor {
     constructor() {
-        this.apiUrl = 'http://localhost:5000/predict';
-        this.healthUrl = 'http://localhost:5000/health';
+        this.apiUrl = '/predict';
+        this.healthUrl = '/health';
         this.modelLoaded = false;
         this.initializeEventListeners();
         this.checkModelStatus();
