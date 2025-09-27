@@ -87,9 +87,9 @@ def health():
 def index():
     """Serve the main HTML interface"""
     try:
-        return send_from_directory('.', 'index.html')
+        return send_from_directory('.', 'templates/index.html')
     except FileNotFoundError:
-        return "HTML file not found. Please make sure index.html is in the same directory as app.py", 404
+        return "HTML file not found. Please make sure index.html is in the templates directory", 404
 
 @app.route('/<path:filename>')
 def static_files(filename):
